@@ -9,19 +9,20 @@ mod log_api;
 mod math_api;
 
 use crate::file_api::module::call as fs;
-use crate::socket_api::module::call as sock;
+use crate::conf_api::module::call as conf;
 use crate::sort_api::module::call as sort;
 use crate::search_api::module::call as search;
-use crate::db_api::module::call as db;
-use crate::conf_api::module::call as conf;
 use crate::rand_api::module::call as rand;
 use crate::log_api::module::call as log;
 use crate::math_api::module::call as math;
+use crate::socket_api::module::call as sock;
+use crate::db_api::module::call as db;
 
 fn main() {
     println!("Hello, world!");
+
     fs();
-    sock();
+    //sock();
     sort();
     search();
     db();
@@ -29,4 +30,5 @@ fn main() {
     rand();
     log();
     math();
+
 }
