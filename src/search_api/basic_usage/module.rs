@@ -5,6 +5,8 @@ pub fn call() {
     println!("with argument point");
 
     basic_usage_with_simple_variables();
+    basic_ownership();
+    basic_browwing();
 }
 
 struct VectorPoint {
@@ -107,26 +109,72 @@ fn basic_usage_with_simple_variables() {
 
 }
 
-fn basic_usage_string_struct() {
+
+//Here are some of the types that implement Copy:(!!!Dont Happen OWNER MOVE!!!IT JUST VALUE COPY.)
+//All the integer types, such as u32.
+//The Boolean type, bool, with values true and false.
+//All the floating point types, such as f64.
+//The character type, char.
+//Tuples, if they only contain types that also implement Copy. For example, (i32, i32) implements Copy, but (i32, String) does not.
+fn basic_ownership() {
+    let v = vec![1, 2, 3];
+
+    let v2 = v;
+
+    // ownership moved.
+    //println!("{}", v);
+
+    println!("v2[0] is: {}", v2[0]);
+    
+    let s1 = String::from("hello");
+    let s2 = s1;
+
+    //println!("s1 value = {}", s1);
+    println!("s2 value = {}", s2);
+    
+}
+
+fn basic_browwing() {
+
+    // Dont have owner-ship
+    fn calculate_length(s: &String) -> usize {
+        s.len()
+    }
+
+    // Dont have owner-ship
+    fn change(some_string: &mut String) {
+        some_string.push_str(", world");
+    }
+
+    // Dont have owner-ship
+    fn add_val(target: &mut i32) {
+        // reference value.
+        *target = *target + 100
+    }
+
+    
+    let s1 = String::from("hello");
+
+    let len = calculate_length(&s1);
+
+    println!("The length of '{}' is {}.", s1, len);
+
+    let mut s = String::from("hello");
+
+    change(&mut s);
+
+    println!("string valuei = {}", s);
+
+    let mut i = 1;
+    add_val(&mut i);
+
+    println!("add 100 from i = {}", i)
+
 
 }
 
-fn borrow_simple_variables() {
+fn basic_pointer() {
 
-}
 
-fn borrow_string_struct() {
-
-}
-
-fn basic_usage_enum() {
-
-}
-
-fn brrow_enum() {
-
-}
-
-fn ownership() {
 
 }
