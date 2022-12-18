@@ -7,6 +7,7 @@ pub fn call() {
     basic_usage_with_simple_variables();
     basic_ownership();
     basic_browwing();
+    basic_panic();
 }
 
 struct VectorPoint {
@@ -173,8 +174,16 @@ fn basic_browwing() {
 
 }
 
-fn basic_pointer() {
+fn basic_panic() {
 
+    println!();
+    println!();
+    println!();
+    println!("basic panic usage");
 
+    //panic!("crash and burn");
+     //Recoverable Errors
 
+    println!();
+    println!();
 }

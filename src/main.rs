@@ -8,6 +8,10 @@ mod conf_api;
 mod log_api;
 mod math_api;
 
+use std::error::Error;
+
+use sea_orm::{DbErr, DatabaseConnection};
+
 use crate::file_api::module::call as fs;
 use crate::conf_api::module::call as conf;
 use crate::sort_api::module::call as sort;
@@ -18,7 +22,7 @@ use crate::math_api::module::call as math;
 use crate::socket_api::module::call as sock;
 use crate::db_api::module::call as db;
 
-fn main() {
+fn main() -> Result<(), Box<dyn Error>> {
     println!("Hello, world!");
 
     fs();
@@ -31,4 +35,5 @@ fn main() {
     log();
     math();
 
+    Ok(())
 }
